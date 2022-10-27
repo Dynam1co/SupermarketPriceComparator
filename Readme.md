@@ -1,5 +1,5 @@
 # Supermarket prices comparator
-Every day, the prices of all the products of several supermarkets are downloaded, compared and it allows to know in which of them each product is cheaper.
+Download price information of products from different supermarkets. Compare prices of similar products and recommend where to buy each one.
 
 # Config file
 You must to rename sample.conf to application.conf
