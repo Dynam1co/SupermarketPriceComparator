@@ -9,6 +9,6 @@ trait Supermarket {
   val supermarket_config: SupermarketConfig
 
   def downloadAll(): Unit
-  def getCategories(): List[ParentCategory]
+  def getCategories: List[ParentCategory]
   def composeEndpoint(baseUrl: String, params: String*): String
 }

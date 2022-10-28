@@ -1,12 +1,11 @@
 package comparator.supermarket.mercadona
 
-import comparator.{Config, Loggin, SupermarketConfig}
+import comparator.{Config, Loggin, SupermarketConfig, Utils}
 import comparator.supermarket.{ChildCategory, ParentCategory, Supermarket}
 import sttp.client3.basicRequest
 import sttp.client3._
 import org.json4s._
 import org.json4s.native.JsonMethods._
-import sttp.model.Uri
 
 class Mercadona extends Supermarket {
   override val supermarket_name = "mercadona"
@@ -64,7 +63,9 @@ class Mercadona extends Supermarket {
 }
 
 object Mercadona extends App {
+  val currTimestamp = Utils.getCurrTimestamp
   val mercadona = new Mercadona()
-  val categoriesList = mercadona.getCategories()
-  println(mercadona.url_get_categories)
+  val categoriesList: List[ParentCategory] = mercadona.getCategories()
+
+  ParentCategory.storeParentCategory(categoriesList, currTimestamp)
 }
