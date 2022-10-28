@@ -26,6 +26,6 @@ libraryDependencies += "org.json4s" %% "json4s-native" % "3.6.0-M2"
 libraryDependencies ++= Seq(
   "com.amazonaws" % "aws-java-sdk" % "1.12.239" exclude("com.fasterxml.jackson.core", "jackson-databind"),
   "org.apache.commons" % "commons-csv" % "1.9.0",
-  "org.slf4j" % "slf4j-api" % "1.7.36" % "provided",
+  "org.slf4j" % "slf4j-api" % "1.7.36",
   "org.mockito" % "mockito-core" % "4.6.1"
 )

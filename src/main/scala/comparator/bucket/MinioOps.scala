@@ -33,8 +33,10 @@ object MinioOps {
   def createFolderIntoBucketIfNotExists(bucketName: String, folderName: String): Unit = {
     val objectResultName = folderName + "/"
 
-    if (!isObjectExist(bucketName, folderName))
+    if (!isObjectExist(bucketName, folderName)) {
       minioClient.putObject(PutObjectArgs.builder.bucket(bucketName).`object`(objectResultName).stream(new ByteArrayInputStream(new Array[Byte](0)), 0, -1).build)
+      Loggin.LogMessage(s"Created folder $folderName into bucket $bucketName", this)
+    }
   }
 
   def isObjectExist(bucketName: String, objectName: String): Boolean = try {
